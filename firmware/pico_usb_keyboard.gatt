@@ -1,0 +1,35 @@
+// Pico USB Keyboard – BLE GATT database (same service as Pico64 / BT-64)
+// Same service and characteristics as the BT-64 "BLE keyboard service" (protocol v1),
+// so the Blue-64 Keyboard iOS app works unchanged. C64B0005 is a Pico64 extension.
+
+PRIMARY_SERVICE, GAP_SERVICE
+CHARACTERISTIC, GAP_DEVICE_NAME, READ, "Pico USB Keyboard"
+
+PRIMARY_SERVICE, GATT_SERVICE
+CHARACTERISTIC, GATT_DATABASE_HASH, READ,
+// Service Changed: tells phones that the GATT database can change (new firmware),
+// so iOS does not keep using a cached, outdated list of characteristics
+CHARACTERISTIC, ORG_BLUETOOTH_CHARACTERISTIC_GATT_SERVICE_CHANGED, READ | INDICATE,
+
+PRIMARY_SERVICE, C64B0001-B1E6-4A64-9C64-6B7E3F1A2D00
+
+// Key state: [flags, key]  flags bit0 SHIFT, bit1 C=, bit2 CTRL, bit3 RESTORE
+//                          key = PA*8 + PB (0..63), 0xFF = none
+CHARACTERISTIC, C64B0002-B1E6-4A64-9C64-6B7E3F1A2D00, WRITE | WRITE_WITHOUT_RESPONSE | DYNAMIC,
+
+// Text feed: byte0 bit0 first chunk, bit1 last chunk; then text in BT-64 macro syntax
+CHARACTERISTIC, C64B0003-B1E6-4A64-9C64-6B7E3F1A2D00, WRITE | DYNAMIC,
+
+// Info: [protocol version, status (bit0 text feed busy), capabilities (bit0 full matrix)]
+CHARACTERISTIC, C64B0004-B1E6-4A64-9C64-6B7E3F1A2D00, READ | DYNAMIC,
+
+// Pico64 extension – full matrix: [flags, col0, col1, ... col7]
+//   col n = bit mask of the PB rows pressed in PA column n (any number of keys)
+CHARACTERISTIC, C64B0005-B1E6-4A64-9C64-6B7E3F1A2D00, WRITE | WRITE_WITHOUT_RESPONSE | DYNAMIC,
+
+// Pico USB Keyboard extension – PC mode
+// USB key state: [modifiers, key1 .. key6] (USB HID usage IDs, 1..7 bytes)
+CHARACTERISTIC, C64B0006-B1E6-4A64-9C64-6B7E3F1A2D00, WRITE | WRITE_WITHOUT_RESPONSE | DYNAMIC,
+
+// PC text: byte0 bit0 first chunk, bit1 last chunk; byte1 layout (0 US, 1 DE, 2 DE Mac); then UTF-8
+CHARACTERISTIC, C64B0007-B1E6-4A64-9C64-6B7E3F1A2D00, WRITE | DYNAMIC,

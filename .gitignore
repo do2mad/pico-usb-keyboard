@@ -1,0 +1,6 @@
+build/
+firmware/build/
+firmware/bin/
+*.uf2
+.DS_Store
+.vscode/

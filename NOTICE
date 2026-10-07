@@ -1,0 +1,26 @@
+Pico USB Keyboard
+Copyright (c) 2026 Martin Oswald (do2mad, https://1mhz.de)
+
+MIT License (LICENSE).
+
+firmware/keys.c, keys.h, textfeed.c, textfeed.h and matrix.h come from Pico64 Keyboard
+(https://github.com/do2mad/pico64-keyboard, MIT, same author).
+
+Third-party components (not part of this repository, pulled in by the build):
+
+- Raspberry Pi Pico SDK - Copyright (c) Raspberry Pi (Trading) Ltd., BSD-3-Clause
+  https://github.com/raspberrypi/pico-sdk
+  firmware/pico_sdk_import.cmake is an unmodified copy from the SDK.
+- TinyUSB - Copyright (c) Ha Thach (tinyusb.org), MIT, part of the Pico SDK.
+- BTstack - Copyright (c) BlueKitchen GmbH. Licensed for use on Raspberry Pi RP2040/RP2350
+  based devices through Raspberry Pi, see the BTstack license in the Pico SDK.
+- CYW43 driver - Copyright (c) Damien P. George / Raspberry Pi. Licensed for use with
+  Raspberry Pi RP2040/RP2350 based devices, see its LICENSE in the Pico SDK.
+
+The Bluetooth service is compatible with the BLE keyboard extension for the BT-64 / Blue-64
+firmware (https://github.com/sideprojectslab/BT-64, Apache-2.0, SideProjectsLab). No code of
+BT-64 is included.
+
+USB ID: 1209:0001 is the pid.codes test ID (https://pid.codes/1209/0001/).
+Commodore and Commodore 64 are trademarks of their respective owners. MiSTer, Mac, Windows
+and other names are trademarks of their respective owners.
