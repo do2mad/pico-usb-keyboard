@@ -12,6 +12,8 @@ keine Verkabelung, kein Treiber.
 Praktisch überall, wo eine große Tastatur zu viel ist: MiSTer, Raspberry Pi, Medien-PC,
 Emulatoren wie VICE, kurze Eingaben unterwegs.
 
+![PC-Tastatur in der App](docs/pc-keyboard.png)
+
 ## Zwei Modi
 
 Ist die App mit einem Pico USB Keyboard verbunden, zeigt sie oben die Knöpfe **C64** und **PC**.

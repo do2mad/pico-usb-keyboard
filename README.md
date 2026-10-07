@@ -12,6 +12,8 @@ plugged into. No soldering, no wiring, no driver.
 Handy wherever a full keyboard is too much: a MiSTer, a Raspberry Pi, a media PC, an emulator
 like VICE, quick input on the go.
 
+![PC keyboard in the app](docs/pc-keyboard.png)
+
 ## Two modes
 
 The app shows a **C64 / PC** switch when it is connected to a Pico USB Keyboard.
