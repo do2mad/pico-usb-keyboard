@@ -2,7 +2,8 @@ MIT License
 
 Copyright (c) 2026 Martin Oswald
 
-This license applies to the whole repository (firmware and documentation).
+This license applies to the firmware and the documentation. The 3D-printable case
+(folder case/ and the photos docs/case*.jpg) is licensed separately, see LICENSE-CASE.md.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

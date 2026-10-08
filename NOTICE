@@ -1,7 +1,8 @@
 Pico USB Keyboard
 Copyright (c) 2026 Martin Oswald (do2mad, https://1mhz.de)
 
-MIT License (LICENSE).
+Firmware and documentation: MIT License (LICENSE).
+Case (case/, docs/case*.jpg): CC BY-NC-SA 4.0 (LICENSE-CASE.md).
 
 firmware/keys.c, keys.h, textfeed.c, textfeed.h and matrix.h come from Pico64 Keyboard
 (https://github.com/do2mad/pico64-keyboard, MIT, same author).

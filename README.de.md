@@ -12,6 +12,8 @@ keine Verkabelung, kein Treiber.
 Praktisch überall, wo eine große Tastatur zu viel ist: MiSTer, Raspberry Pi, Medien-PC,
 Emulatoren wie VICE, kurze Eingaben unterwegs.
 
+![Pico USB Keyboard im 3D-gedruckten Gehäuse](docs/case.jpg)
+
 ![PC-Tastatur in der App](docs/pc-keyboard.png)
 
 ## Zwei Modi
@@ -58,6 +60,33 @@ und setzt SHIFT + Ziffer für ein US-Layout um – das berücksichtigt die Firmw
 
 Debug-Ausgabe (optional): UART0 an GP0 (TX) / GP1 (RX), 115200 Baud.
 
+## Gehäuse (3D-Druck)
+
+Ein kleines Gehäuse im Retro-Stil mit 1MHz.de-Logo – Dateien in [case/](case/):
+
+| Datei | |
+|---|---|
+| `top-numpad-statusbar.stl` | Oberteil mit Ziffernblock und Rahmen um LED / BOOTSEL (wie auf dem Foto) |
+| `top-numpad.stl` / `top-statusbar.stl` | die beiden anderen Varianten |
+| `bottom.stl` | Bodenplatte (für alle Varianten gleich) |
+| `pico-usb-keyboard-case.scad` | OpenSCAD-Quelle (`variant = "numpad" / "status" / "both"`) |
+
+- **Teile:** Raspberry Pi Pico 2 W **ohne** Stiftleisten, 4 × selbstschneidende Schrauben
+  **M1,7 × 10** (× 8 geht auch), 4 Gummifüße Ø 8 mm zum Kleben (optional)
+- **Drucken:** PLA oder PETG. Bodenplatte flach. Oberteil **mit der offenen Seite nach unten**,
+  Stützen „nur auf dem Druckbett“ (für das schräge Dach). 0,2 mm Schicht geht, mit **0,08 mm**
+  werden Logo und Tasten deutlich schöner.
+- **Zusammenbau:** Pico mit der Oberseite nach unten ins Oberteil legen – die Rippen richten ihn
+  aus –, Bodenplatte drauf und durch die vier Befestigungslöcher des Pico verschrauben.
+- Die LED leuchtet durch das kleine Loch, BOOTSEL erreicht man mit einer Büroklammer durch das
+  größere (Firmware-Update ohne Aufschrauben).
+
+| Innen | Unterseite |
+|---|---|
+| ![Innen](docs/case-inside.jpg) | ![Unterseite](docs/case-bottom.jpg) |
+
+Gehäuse ändern: OpenSCAD (der Schriftzug 1MHz.de nutzt die Schrift *Liberation Mono Bold*).
+
 ## Bluetooth-Protokoll
 
 Gleicher Dienst wie [Pico64 Keyboard](https://github.com/do2mad/pico64-keyboard) und die
@@ -85,10 +114,12 @@ cmake -S . -B build && cmake --build build      # -> build/pico-usb-keyboard.uf2
 
 ## USB-Kennung
 
-Die Firmware nutzt die Test-Kennung `1209:0001` von pid.codes. Eine eigene Produkt-ID für das
-offene Projekt ist beantragt bzw. geplant.
+Die Firmware nutzt noch die Test-Kennung `1209:0001` von pid.codes. Eine eigene Kennung
+(`1209:C64B`) ist bei pid.codes beantragt und wird eingetragen, sobald sie vergeben ist.
 
 ## Lizenz
 
-MIT – siehe [LICENSE](LICENSE) und [NOTICE](NOTICE). Von Martin Oswald (do2mad) –
+Firmware und Doku: MIT – siehe [LICENSE](LICENSE) und [NOTICE](NOTICE).
+Gehäuse (Ordner `case/` und die Fotos): CC BY-NC-SA 4.0 – siehe [LICENSE-CASE.md](LICENSE-CASE.md).
+Von Martin Oswald (do2mad) –
 [1mhz.de](https://1mhz.de).

@@ -12,6 +12,8 @@ plugged into. No soldering, no wiring, no driver.
 Handy wherever a full keyboard is too much: a MiSTer, a Raspberry Pi, a media PC, an emulator
 like VICE, quick input on the go.
 
+![Pico USB Keyboard in its 3D-printed case](docs/case.jpg)
+
 ![PC keyboard in the app](docs/pc-keyboard.png)
 
 ## Two modes
@@ -57,6 +59,33 @@ SHIFT + digit for a US layout – the firmware takes this into account).
 
 Debug output (optional): UART0 on GP0 (TX) / GP1 (RX), 115200 baud.
 
+## Case (3D print)
+
+A small retro-style case with the 1MHz.de logo – files in [case/](case/):
+
+| File | |
+|---|---|
+| `top-numpad-statusbar.stl` | top with number pad and frame around LED / BOOTSEL (as in the photo) |
+| `top-numpad.stl` / `top-statusbar.stl` | the two other variants |
+| `bottom.stl` | bottom plate (same for all variants) |
+| `pico-usb-keyboard-case.scad` | OpenSCAD source (`variant = "numpad" / "status" / "both"`) |
+
+- **Parts:** Raspberry Pi Pico 2 W **without** pin headers, 4 × self-tapping screws **M1.7 × 10**
+  (× 8 works too), 4 self-adhesive rubber feet Ø 8 mm (optional)
+- **Printing:** PLA or PETG. Bottom plate flat. Top **open side down** with supports
+  "on build plate only" (for the sloped roof). 0.2 mm layers work; **0.08 mm** gives a much
+  nicer logo and keys.
+- **Assembly:** put the Pico upside down into the top – the ribs centre it –, put the bottom
+  plate on and screw both together through the Pico's four mounting holes.
+- The LED shines through the small hole; BOOTSEL can be pressed through the larger one with a
+  paper clip (firmware update without opening the case).
+
+| Inside | Bottom |
+|---|---|
+| ![Inside](docs/case-inside.jpg) | ![Bottom](docs/case-bottom.jpg) |
+
+Changing the case: OpenSCAD (the 1MHz.de lettering uses the font *Liberation Mono Bold*).
+
 ## Bluetooth protocol
 
 Same service as [Pico64 Keyboard](https://github.com/do2mad/pico64-keyboard) and the BT-64 BLE
@@ -87,10 +116,12 @@ The key scheduler (`keys.c`) and the text feed (`textfeed.c`) come from Pico64 K
 
 ## USB ID
 
-The firmware uses the pid.codes test ID `1209:0001`. A dedicated product ID for this open
-project is planned.
+The firmware still uses the pid.codes test ID `1209:0001`. A dedicated ID (`1209:C64B`) has been
+requested at pid.codes and will be used as soon as it is assigned.
 
 ## License
 
-MIT – see [LICENSE](LICENSE) and [NOTICE](NOTICE). Made by Martin Oswald (do2mad) –
+Firmware and documentation: MIT – see [LICENSE](LICENSE) and [NOTICE](NOTICE).
+Case (folder `case/` and the photos): CC BY-NC-SA 4.0 – see [LICENSE-CASE.md](LICENSE-CASE.md).
+Made by Martin Oswald (do2mad) –
 [1mhz.de](https://1mhz.de).

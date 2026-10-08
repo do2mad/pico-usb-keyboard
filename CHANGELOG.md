@@ -2,6 +2,18 @@
 
 Pico USB Keyboard. Neueste Version zuerst.
 
+## Neu (noch ohne Release) / Unreleased
+
+### Deutsch
+
+- **Gehäuse zum 3D-Drucken** im Ordner `case/`: Keilform im Retro-Stil mit 1MHz.de-Logo, drei Varianten (Ziffernblock, Statusleiste, beides), LED- und BOOTSEL-Öffnung, Führungsrippen für den Pico, 4 × M1,7-Schrauben. Lizenz CC BY-NC-SA 4.0.
+- Eigene USB-Kennung `1209:C64B` bei pid.codes beantragt.
+
+### English
+
+- **3D-printable case** in the folder `case/`: retro-style wedge with the 1MHz.de logo, three variants (number pad, status bar, both), openings for LED and BOOTSEL, guide ribs for the Pico, 4 × M1.7 screws. License CC BY-NC-SA 4.0.
+- Dedicated USB ID `1209:C64B` requested at pid.codes.
+
 ## v0.3.0 – 2026-10-07
 
 ### Deutsch
