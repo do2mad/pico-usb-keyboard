@@ -9,7 +9,8 @@
 #include "matrix.h"
 
 typedef enum {
-    KEYSRC_APP = 0,      // iPhone / Android app (BLE service)
+    KEYSRC_APP = 0,      // iPhone / Android app (BLE service), first connection
+    KEYSRC_APP2,         // second app connected at the same time
     KEYSRC_BTKBD,        // Bluetooth keyboard(s)
     KEYSRC_PAD,          // gamepad buttons mapped to keys (SPACE, RETURN, F1, RUN/STOP)
     KEYSRC_COUNT

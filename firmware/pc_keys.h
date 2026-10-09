@@ -14,8 +14,12 @@
 #define PC_LAYOUT_US_MAC  3     // English (US), macOS
 
 void pc_keys_init(void);
-/** New key state from the app: [modifiers, key1..key6] (USB HID usages). */
-void pc_keys_post(const uint8_t *data, uint16_t len);
+#define PC_APPS 2       // apps connected at the same time; their keys are combined
+
+/** New key state from app number `app`: [modifiers, key1..key6] (USB HID usages). */
+void pc_keys_post(uint8_t app, const uint8_t *data, uint16_t len);
+/** Release the keys of one app (disconnected). */
+void pc_keys_release_app(uint8_t app);
 /** Type UTF-8 text with the given layout. false if busy or too long. */
 bool pc_keys_type_text(const char *text, uint16_t len, uint8_t layout);
 bool pc_keys_text_busy(void);

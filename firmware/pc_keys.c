@@ -253,17 +253,44 @@ void pc_keys_init(void) {
     step_timer.process = &step;
 }
 
-void pc_keys_post(const uint8_t *data, uint16_t len) {
-    if (text_active) return;                 // the text feed owns the keyboard
+static pc_state_t app_state[PC_APPS];        // current keys of each app
+
+// queue the combination of all apps' keys (modifiers ORed, up to 6 keys)
+static void post_merged(void) {
     pc_state_t s;
     memset(&s, 0, sizeof(s));
-    if (len > 0) s.mods = data[0];
-    for (uint16_t i = 1; i < len && i <= 6; i++) s.keys[i - 1] = data[i];
+    int n = 0;
+    for (int a = 0; a < PC_APPS; a++) {
+        s.mods |= app_state[a].mods;
+        for (int i = 0; i < 6; i++) {
+            uint8_t k = app_state[a].keys[i];
+            if (!k) continue;
+            bool dup = false;
+            for (int j = 0; j < n; j++) if (s.keys[j] == k) dup = true;
+            if (!dup && n < 6) s.keys[n++] = k;
+        }
+    }
     uint8_t next = (uint8_t)((q_head + 1) % QUEUE_LEN);
     if (next == q_tail) q_tail = (uint8_t)((q_tail + 1) % QUEUE_LEN);   // full: drop the oldest
     queue[q_head] = s;
     q_head = next;
     if (!stepping) step(NULL);
+}
+
+void pc_keys_post(uint8_t app, const uint8_t *data, uint16_t len) {
+    if (app >= PC_APPS) return;
+    pc_state_t *s = &app_state[app];
+    memset(s, 0, sizeof(*s));
+    if (len > 0) s->mods = data[0];
+    for (uint16_t i = 1; i < len && i <= 6; i++) s->keys[i - 1] = data[i];
+    if (text_active) return;                 // the text feed owns the keyboard
+    post_merged();
+}
+
+void pc_keys_release_app(uint8_t app) {
+    if (app >= PC_APPS) return;
+    memset(&app_state[app], 0, sizeof(app_state[app]));
+    if (!text_active) post_merged();
 }
 
 bool pc_keys_type_text(const char *t, uint16_t len, uint8_t layout) {
@@ -284,6 +311,7 @@ bool pc_keys_type_text(const char *t, uint16_t len, uint8_t layout) {
 bool pc_keys_text_busy(void) { return text_active; }
 
 void pc_keys_release_all(void) {
+    memset(app_state, 0, sizeof(app_state));
     text_active = false;
     q_head = q_tail = 0;
     uint8_t none[6] = {0};

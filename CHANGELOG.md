@@ -2,15 +2,17 @@
 
 Pico USB Keyboard. Neueste Version zuerst.
 
-## Neu (noch ohne Release) / Unreleased
+## v0.4.0 – 2026-10-08
 
 ### Deutsch
 
+- **Zwei Geräte gleichzeitig:** z. B. iPhone und iPad (oder zwei Spieler) sind zugleich verbunden. Die Tasten beider Geräte werden zusammengelegt, im C64- und im PC-Modus. Trennt sich ein Gerät, werden nur dessen Tasten losgelassen. Text sendet immer nur ein Gerät, das andere wartet kurz.
 - **Gehäuse zum 3D-Drucken** im Ordner `case/`: Keilform im Retro-Stil mit 1MHz.de-Logo, drei Varianten (Ziffernblock, Statusleiste, beides), LED- und BOOTSEL-Öffnung, Führungsrippen für den Pico, 4 × M1,7-Schrauben. Lizenz CC BY-NC-SA 4.0.
 - Eigene USB-Kennung `1209:C64B` bei pid.codes beantragt.
 
 ### English
 
+- **Two devices at the same time:** e.g. iPhone and iPad (or two players) can be connected together. The keys of both are combined, in C64 and PC mode. When one disconnects, only its keys are released. Only one device sends text at a time, the other one waits briefly.
 - **3D-printable case** in the folder `case/`: retro-style wedge with the 1MHz.de logo, three variants (number pad, status bar, both), openings for LED and BOOTSEL, guide ribs for the Pico, 4 × M1.7 screws. License CC BY-NC-SA 4.0.
 - Dedicated USB ID `1209:C64B` requested at pid.codes.
 

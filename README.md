@@ -51,7 +51,8 @@ SHIFT + digit for a US layout – the firmware takes this into account).
    onto the `RP2350` drive.
 2. **Plug the Pico** into the computer / MiSTer you want to type on.
 3. **Open the app** – it finds **Pico USB Keyboard** by itself. LED blinking = waiting,
-   LED on = connected.
+   LED on = connected. **Two devices** (e.g. iPhone and iPad) can be connected at the same
+   time; their keys are combined like two keyboards on one computer.
 4. Choose **C64** or **PC** at the top, and in PC mode the keyboard layout.
 
 > **Mac:** macOS may open the "Keyboard Setup Assistant" the first time – close it. The firmware

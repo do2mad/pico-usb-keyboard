@@ -19,7 +19,7 @@
 #include "ble_service.h"
 #include "pc_keys.h"
 
-#define PICO_USB_KB_VERSION "0.3.0"
+#define PICO_USB_KB_VERSION "0.4.0"
 
 // hid_out.c (keeps tusb.h away from btstack.h - both define HID types)
 void hid_out_init(void);

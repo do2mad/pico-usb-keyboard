@@ -100,7 +100,7 @@ static void schedule(void) {
     }
     matrix_apply(&s);
     bool press = !state_empty(&u.state);
-    if (u.src == KEYSRC_APP) hold(press ? APP_PRESS_MS : APP_RELEASE_MS);
+    if (u.src == KEYSRC_APP || u.src == KEYSRC_APP2) hold(press ? APP_PRESS_MS : APP_RELEASE_MS);
     else                     hold(press ? KBD_PRESS_MS : KBD_RELEASE_MS);
 }
 

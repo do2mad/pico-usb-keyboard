@@ -52,7 +52,8 @@ und setzt SHIFT + Ziffer für ein US-Layout um – das berücksichtigt die Firmw
    auf das Laufwerk `RP2350` ziehen.
 2. **Pico anstecken** an den Rechner / MiSTer, an dem du tippen willst.
 3. **App öffnen** – sie findet **Pico USB Keyboard** von selbst. LED blinkt = wartet,
-   LED an = verbunden.
+   LED an = verbunden. **Zwei Geräte** (z. B. iPhone und iPad) können gleichzeitig verbunden
+   sein; ihre Tasten werden zusammengelegt wie bei zwei Tastaturen an einem Rechner.
 4. Oben **C64** oder **PC** wählen, im PC-Modus dazu das Tastaturlayout.
 
 > **Mac:** Beim ersten Anstecken öffnet macOS eventuell den „Tastatur-Assistenten“ – einfach
